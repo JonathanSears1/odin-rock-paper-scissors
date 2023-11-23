@@ -42,7 +42,7 @@ function playRound(playerSelection = prompt("choose your move"), compterChoice =
         }
     }
     else {
-        console.error(`computer input ${compterChoice} and player input ${playerSelection} did not create a win condition`)
+        console.error(`Invalid input. You entered ${playerSelection}, please enter rock, paper, or scissors`)
         return
     }
 }    
@@ -50,10 +50,33 @@ function playRound(playerSelection = prompt("choose your move"), compterChoice =
 }   
 
 function game() {
+    let playerScore = 0
+    let computerScore = 0
+    let outcome
+    let message
     for (let i = 1;i<=5;i++) {
         console.log(`round ${i}`)
-        console.log(playRound())
+        message  = playRound()
+        messageArr = message.split(' ')
+        if (messageArr[messageArr.length -1] == "win!") {
+            playerScore++
+        }
+        else if (messageArr[messageArr.length -1] == "lose!") {
+            computerScore++
+        }
+        console.log(message)
+        console.log(`Player score: ${playerScore}`)
+        console.log(`Computer score: ${computerScore}`)
     }
-    return
+    if (playerScore > computerScore) {
+        outcome = "win"
+    } 
+    else if (playerScore < computerScore) {
+        outcome = "lose"
+    }
+    else {
+        outcome = "tie"
+    }
+    return `you scored ${playerScore} and the computer scored ${computerScore}, you ${outcome}`
 }
 
