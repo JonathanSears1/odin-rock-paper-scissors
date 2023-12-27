@@ -5,8 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src = "script.js"></script>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Use the console in chrome dev tools to play!</h1>
+    <h1>Rock Paper Scissors</h1>
+    <div class = "container" >
+        <div class = "choice" id = "player_choice">
+            <div>
+                <span>Your choice:</span>
+            </div>
+            <img class = "img_choice" src = "images/Question_mark_(black).svg.png" >
+            <div class = "input_wrapper">
+                <input name="choice" type="text" id="player_input">
+            </div>
+        </div>
+        <div class = "choice" id = "CPU_choice">
+            <div>
+                <span>Computer choice:</span>
+            </div>
+            <img class = "img_choice" src = "images/Question_mark_(black).svg.png" >
+            <span>?</span>
+        </div>
+    </div>
 </body>
 </html>
