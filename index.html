@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src = "script.js"></script>
+    <script src = "script.js" defer></script>
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
@@ -14,17 +14,25 @@
             <div>
                 <span>Your choice:</span>
             </div>
-            <img class = "img_choice" src = "images/Question_mark_(black).svg.png" >
-            <div class = "input_wrapper">
-                <input name="choice" type="text" id="player_input">
+            <img id = "user_img_choice" class = "img_choice"src = "images/Question_mark_(black).svg.png" >
+            <div class = "button_wrapper">
+                <button class = "choice_btn" id= "rock">Rock</button>
+                <button class= "choice_btn" id = "paper">Paper</button>
+                <button class = "choice_btn" id = "scissors">Scissors</button>
             </div>
+        </div>
+        <div id = "middle">
+            <div>
+                <span id = "result"></span>
+            </div>
+            <button id = "shoot">SHOOT!</button>
         </div>
         <div class = "choice" id = "CPU_choice">
             <div>
                 <span>Computer choice:</span>
             </div>
-            <img class = "img_choice" src = "images/Question_mark_(black).svg.png" >
-            <span>?</span>
+            <img id = "CPU_img_choice" class = "img_choice" src = "images/Question_mark_(black).svg.png" >
+            <span id = "CPU_text_choice" >*******</span>
         </div>
     </div>
 </body>

@@ -1,3 +1,32 @@
+const rock = document.querySelector("#rock")
+const paper = document.querySelector("#paper")
+const scissors = document.querySelector("#scissors")
+const shoot = document.querySelector("#shoot")
+const result = document.querySelector("#result")
+let choiceImg = document.querySelector("#user_img_choice")
+let cpuImg = document.querySelector("#CPU_img_choice")
+let cpuText = document.querySelector("#CPU_text_choice")
+let playerChoice = ""
+
+
+rock.addEventListener("click", () => {
+    playerChoice = "rock"
+    console.log(playerChoice)
+    choiceImg.src = "images/pngimg.com - stone_PNG13545.png"
+})
+
+paper.addEventListener("click", () => {
+    playerChoice = "paper"
+    console.log(playerChoice)
+    choiceImg.src = "images/White-Paper-No-Background.png"
+})
+
+scissors.addEventListener("click", () => {
+    playerChoice = "scissors"
+    console.log(playerChoice)
+    choiceImg.src = "images/scissors.png"
+})
+
 function getComputerChoice() {
     choice = Math.floor(Math.random() * 3)
     if (choice == 0) {
@@ -10,7 +39,8 @@ function getComputerChoice() {
         return "scissors"
     }
 }
-function playRound(playerSelection = prompt("choose your move"), compterChoice = getComputerChoice()) {
+
+function playRound(playerSelection, compterChoice = getComputerChoice()) {
     let lowerPlayerSelection = playerSelection.toLowerCase()
     let outcome
     if (lowerPlayerSelection == compterChoice) {
@@ -42,12 +72,11 @@ function playRound(playerSelection = prompt("choose your move"), compterChoice =
         }
     }
     else {
-        console.error(`Invalid input. You entered ${playerSelection}, please enter rock, paper, or scissors`)
-        return
+        return "Please select rock, paper, or scissors before clicking shoot"
     }
 }    
-    return `You played ${playerSelection} and the computer played ${compterChoice}. You ${outcome}!`
-}   
+    return outcome
+}
 
 function game() {
     let playerScore = 0
@@ -80,3 +109,17 @@ function game() {
     return `you scored ${playerScore} and the computer scored ${computerScore}, you ${outcome}`
 }
 
+shoot.addEventListener("click", () => {
+    let computerChoice = getComputerChoice()
+    if (computerChoice == "rock") {
+        cpuImg.src = "images/pngimg.com - stone_PNG13545.png"
+    }
+    if (computerChoice == "scissors") {
+        cpuImg.src = "images/scissors.png"
+    }
+    if (computerChoice == "paper") {
+        cpuImg.src = "images/White-Paper-No-Background.png"
+    }
+    cpuText.textContent = computerChoice
+    result.textContent = playRound(playerChoice,computerChoice)
+})
