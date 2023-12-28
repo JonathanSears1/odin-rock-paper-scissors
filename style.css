@@ -14,8 +14,8 @@
 
 }
 .img_choice {
-    width: 300px;
-    height: auto;
+    width: auto;
+    height: 300px;
     flex: auto;
 }
 .button_wrapper {
