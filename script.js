@@ -120,6 +120,7 @@ shoot.addEventListener("click", () => {
         cpuWins = 0
         cpuImg.src = "images/Question_mark_(black).svg.png"
         choiceImg.src = "images/Question_mark_(black).svg.png"
+        result.textContent = ""
     }
     userWinCount.textContent = `User Wins: ${userWins}`
     cpuWinCount.textContent = `CPU Wins: ${cpuWins}`
